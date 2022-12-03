@@ -13,8 +13,11 @@ jobs:
       - run:
           name: Run unit tests & Generate Test Report
           command: |
-            python3 -m unittest test/test_calculator.py
-            coverage run -m unittest test/test_calculator.py
+            flask db init
+            flask db migrate
+            flask db upgrade
+            python3 -m pytest tests/unit
+            coverage run -m pytest
             coverage report
             coverage html
       - store_test_results:
