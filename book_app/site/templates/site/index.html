@@ -6,6 +6,16 @@
 </head>
     <body>
         <img src="{{url_for('site.static', filename='images/kyc.png')}}">
+
+        <form method="POST" action="/" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            {{ form.name.label }} {{ form.name(size=20) }}
+            {{ form.cnp.label }} {{ form.cnp(size=20) }}
+            {{ form.email_address.label }} {{ form.email_address(size=20) }}
+            {{ form.selfie_kyc.label }} {{ form.selfie_kyc(size=10) }}
+            {{ form.selected_casinos.label }} {{ form.selected_casinos(size=10) }}
+            <input type="submit" value="Go">
+        </form>
         <h1>sall</h1>
     </body>
 </html>
