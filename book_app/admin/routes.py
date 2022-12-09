@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from models.models import Casino
+from models.models import Admin
 
 admin = Blueprint('admin', 
                 __name__, 
@@ -12,6 +13,9 @@ admin = Blueprint('admin',
 
 @admin.route('/', subdomain='admin')
 def index():
+    if request.method == 'POST':
+        pass
+
     return render_template('admin/index.html')
 
 

@@ -15,6 +15,7 @@ class Config:
     FLASK_APP = environ.get("FLASK_APP")
     FLASK_ENV = environ.get("FLASK_ENV")
     SERVER_NAME = environ.get("SERVER_NAME")
+    UPLOAD_FOLDER = environ.get("UPLOAD_FOLDER")
 
     # Database
     SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI")

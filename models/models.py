@@ -25,4 +25,16 @@ class Casino(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(240))
     timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    verified = db.Column(db.Boolean, default=False)
     users = db.relationship('User', backref='casino')    
+
+
+class Admin(db.Model):
+
+    __tablename__ = 'admin'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(24))
+    password = db.Column(db.String(30))
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+
