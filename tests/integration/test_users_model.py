@@ -1,8 +1,7 @@
 
-from models.models import User
-from models.models import Casino
+from stopgambling.models.models import User, Casino
 import datetime
-from book_app.globals.utils import verify_cnp, verify_phone, verify_email, hash_image_name
+from stopgambling.globals.utils import verify_cnp, verify_phone, verify_email, hash_image_name
 
 
 

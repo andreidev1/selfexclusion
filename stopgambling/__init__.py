@@ -17,9 +17,9 @@ def create_app():
     
 
     with app.app_context():
-        from book_app.site.routes import site
-        from book_app.api.routes import api_v1
-        from book_app.admin.routes import admin
+        from stopgambling.blueprints.site.routes import site
+        from stopgambling.blueprints.api.routes import api_v1
+        from stopgambling.blueprints.admin.routes import admin
         
         app.register_blueprint(site)
         app.register_blueprint(api_v1)

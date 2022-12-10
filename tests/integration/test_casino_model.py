@@ -1,4 +1,4 @@
-from models.models import Casino
+from stopgambling.models.models import Casino
 import datetime
 
 def test_new_casino():

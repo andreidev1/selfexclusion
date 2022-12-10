@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request
-from models.models import Casino
-from models.models import Admin
+from stopgambling.models.models import User, Admin
 
 admin = Blueprint('admin', 
                 __name__, 

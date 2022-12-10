@@ -7,7 +7,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import BooleanField, StringField, FileField, RadioField, validators
 from werkzeug.utils import secure_filename
-from models.models import User, Casino
+from stopgambling.models.models import User, Casino
 
 from flask import current_app
 from db import db

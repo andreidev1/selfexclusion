@@ -2,7 +2,7 @@ from flask import current_app as app
 
 from flask import Blueprint, jsonify, request
 from flask_restx import Api, Resource, marshal_with, fields
-from models.models import User
+from stopgambling.models.models import User
 
 
 api_v1 = Blueprint('api', __name__, subdomain='api')

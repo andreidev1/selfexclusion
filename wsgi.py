@@ -1,5 +1,5 @@
 """App entry point."""
-from book_app import create_app
+from stopgambling import create_app
 
 app = create_app()
 
