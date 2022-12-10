@@ -14,7 +14,6 @@ admin = Blueprint('admin',
 def index():
     if request.method == 'POST':
         pass
-
     return render_template('admin/index.html')
 
 

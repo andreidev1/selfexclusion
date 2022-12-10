@@ -13,6 +13,7 @@ class User(db.Model):
     selfie_kyc = db.Column(db.String(80))
     verified = db.Column(db.Boolean, default=False)
     selected_casinos = db.Column(db.String(200))
+    period = db.Column(db.String(200))
     timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('casino.id'))
 

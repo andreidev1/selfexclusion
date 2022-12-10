@@ -1,16 +1,15 @@
 import os
 
 from flask import Blueprint, render_template, request, flash
-
+from flask import current_app
 from flask_wtf import FlaskForm
-
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import BooleanField, StringField, FileField, RadioField, validators
 from werkzeug.utils import secure_filename
-from stopgambling.models.models import User, Casino
 
-from flask import current_app
 from db import db
+from stopgambling.models.models import User, Casino
+from stopgambling.globals.functions.utils import hash_image_name
 
 
 site = Blueprint('site', 
@@ -42,7 +41,6 @@ class SelfExclusionForm(FlaskForm):
 @site.route('/', methods=['GET','POST'])
 def index():
     form = SelfExclusionForm()
-    #if form.validate_on_submit():
     if request.method == 'POST':
         file = request.files['selfie_kyc']
         print(file)
@@ -52,15 +50,16 @@ def index():
             flash('No selected file')
         if file:
             filename = secure_filename(file.filename)
+            filename = hash_image_name(filename)
             file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
 
             new_user = User(
                             name=request.form['name'],
-                            cnp = request.form['cnp'],
-                            number_phone = request.form['number_phone'],
-                            email_address = request.form['email_address'],
-                            selfie_kyc = request.form['selfie_kyc'],
-                            selected_casinos = request.form['selected_casinos']
+                            cnp=request.form['cnp'],
+                            number_phone=request.form['number_phone'],
+                            email_address=request.form['email_address'],
+                            selfie_kyc=request.form['selfie_kyc'],
+                            selected_casinos=request.form['selected_casinos']
             
                             )
 

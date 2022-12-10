@@ -28,7 +28,8 @@ def test_submit_form_fail_400(test_client):
     payload = {
                 'name' : 'Andrew',
                 'cnp' : '50000000',
-                'number_phone' : '07541241'
+                'number_phone' : '07541241',
+                'selfie_kyc' : '####'
               }
 
 

@@ -1,7 +1,7 @@
 
 from stopgambling.models.models import User, Casino
 import datetime
-from stopgambling.globals.utils import verify_cnp, verify_phone, verify_email, hash_image_name
+from stopgambling.globals.functions.utils import verify_cnp, verify_phone, verify_email, hash_image_name
 
 
 
