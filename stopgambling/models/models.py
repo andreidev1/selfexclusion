@@ -14,7 +14,9 @@ class User(db.Model):
     verified = db.Column(db.Boolean, default=False)
     selected_casinos = db.Column(db.String(200))
     period = db.Column(db.String(200))
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    #timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    timestamp = db.Column(db.String(500))
+    verified = db.Column(db.String(200))
     user_id = db.Column(db.Integer, db.ForeignKey('casino.id'))
 
 
@@ -25,7 +27,8 @@ class Casino(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(240))
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    #timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    timestamp = db.Column(db.String(500))
     verified = db.Column(db.Boolean, default=False)
     users = db.relationship('User', backref='casino')    
 
