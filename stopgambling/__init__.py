@@ -8,7 +8,7 @@ def create_app():
 
     app = Flask(__name__, subdomain_matching=True)
 
-    app.config.from_object('config.Config')
+    app.config.from_object('config.ProductionConfig')
 
     from db import db
     db.init_app(app)

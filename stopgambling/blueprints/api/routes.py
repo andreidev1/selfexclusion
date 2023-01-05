@@ -2,6 +2,7 @@ from flask import current_app as app
 
 from flask import Blueprint, jsonify, request
 from flask_restx import Api, Resource, marshal_with, fields
+
 from stopgambling.models.models import User
 
 

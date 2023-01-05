@@ -10,17 +10,29 @@
 
     <form method="POST" action="/" enctype="multipart/form-data">
         {{ form.csrf_token }} {{ form.name.label }} {{ form.name(size=20) }}
+        <br />
         <br /> {{ form.cnp.label }} {{ form.cnp(size=20) }}
+        <br />
         <br /> {{ form.email_address.label }} {{ form.email_address(size=20) }}
         <br />
+        <br /> {{ form.number_phone.label }} {{ form.number_phone(size=20) }}
         <br />
         <br /> {{ form.selfie_kyc.label }} {{ form.selfie_kyc(size=20) }}
         <br />
+        <br />
         <br /> {{ form.selected_casinos.label }} {{ form.selected_casinos(size=20) }}
+        <br />
+        <br /> {{ form.period.label }} {{ form.period(size=20) }}
         <br />
         <input type="submit" value="Submit Data">
     </form>
+    {% extends "flash.html" %} 
+    {% block body %}
 
+    {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }} 
+    {% endif %} 
+    {% endblock %}
 </body>
 
 </html>

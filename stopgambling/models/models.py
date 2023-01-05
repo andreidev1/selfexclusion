@@ -1,5 +1,9 @@
-from db import db
 import datetime
+
+from flask_login import UserMixin
+
+from db import db
+
 
 class User(db.Model):
 
@@ -16,8 +20,9 @@ class User(db.Model):
     period = db.Column(db.String(200))
     #timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     timestamp = db.Column(db.String(500))
-    verified = db.Column(db.String(200))
-    user_id = db.Column(db.Integer, db.ForeignKey('casino.id'))
+    #verified = db.Column(db.String(200))
+    verified = db.Column(db.Boolean, default=False)
+
 
 
 
@@ -27,18 +32,19 @@ class Casino(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(240))
+    email = db.Column(db.String(240))
     #timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     timestamp = db.Column(db.String(500))
+    auth_key = db.Column(db.String(500), default=None)
     verified = db.Column(db.Boolean, default=False)
-    users = db.relationship('User', backref='casino')    
 
 
-class Admin(db.Model):
+
+class Admin(db.Model, UserMixin):
 
     __tablename__ = 'admin'
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(24))
     password = db.Column(db.String(30))
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 

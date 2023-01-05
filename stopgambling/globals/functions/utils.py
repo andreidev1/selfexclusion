@@ -1,4 +1,4 @@
-import hashlib
+from cryptography.fernet import Fernet
 
 # Responsible with verifying a real CNP
 def verify_cnp(cnp: str):
@@ -24,12 +24,15 @@ def verify_email(email: str):
         else:
             return False
 
-# Responsible with hashing image name for avoiding duplication
-def hash_image_name(image_name: str):
+# Responsible with encrypting image name for avoiding duplication
+def encrypt_image_name(image_name: str):
     ALLOWED_EXTENSIONS = ['.jpg', '.png']
+    
+    key = Fernet.generate_key()
+    fernet = Fernet(key)
 
     for extension in ALLOWED_EXTENSIONS:
         if extension in image_name:
-            image_name = hashlib.sha256(image_name.encode('utf-8')).hexdigest() + extension
+            image_name = fernet.encrypt(image_name.encode()).decode('utf-8') + extension
 
     return image_name
